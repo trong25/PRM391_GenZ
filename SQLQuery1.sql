@@ -52,6 +52,9 @@ CREATE TABLE Room (
     FOREIGN KEY (TypeRoomId) REFERENCES TypeRoom(TypeRoomId)
 );
 
+ALTER TABLE Room ADD HotelId VARCHAR(50); 
+ALTER TABLE Room ADD CONSTRAINT FK_Room_Hotel FOREIGN KEY (HotelId) REFERENCES Hotel(HotelId);
+
 -- Bảng PriceConfig (Phụ thuộc vào TypeRoom và TypeBooking)
 CREATE TABLE PriceConfig (
     PriceConfigId INT IDENTITY(1,1) PRIMARY KEY, -- Dùng số tự tăng cho ID bảng cấu hình
